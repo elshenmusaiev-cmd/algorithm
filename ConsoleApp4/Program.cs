@@ -23,7 +23,7 @@ class Program
     }
     static void InsertionSort(int[] array)
     {
-        for (int i = 1; i < array.Length; i++)
+        for (int i = 1; i < array.Length; i++)//musaev005
         {
             int key = array[i];
             int j = i - 1;
