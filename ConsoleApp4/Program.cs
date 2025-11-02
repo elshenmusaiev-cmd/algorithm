@@ -1,74 +1,43 @@
-﻿using SortSearchAppp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
-namespace SortSearchAppp
+using ConsoleApp4.SortingMethods;
+
+namespace ConsoleApp4
 {
-    interface ISortAlgorithm
+    class Program
     {
-        void Sort(int[] array);
+        public void Main()
+        {
+            Console.WriteLine("Enter values");
+
+            string input = Console.ReadLine();
+            string selectedAlgorithm = Console.ReadLine();
+
+            // TODO: Создать отдельный класс для преобразования прочитанного массива
+            string[] inputArray = input?.Split(' ').ToArray();
+            int[] numbers = new int[inputArray.Length];
+
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                int.TryParse(inputArray[i], out numbers[i]);
+            }
+
+            // SortSelector
+
+            // Sort
+
+            // Console.WriteLine();
+
+            // TODO: Прочитать число для поиска
+
+            // Console.WriteLine()
+
+            Console.ReadLine();
+        }
     }
     
-    class InsertionSort : ISortAlgorithm
-    {
-        public void Sort(int[] array)
-        {
-            for (int i = 1; i < array.Length; i++)
-            {
-                int key = array[i];
-                int j = i - 1;
-                while (j >= 0 && array[j] > key)
-                {
-                    array[j + 1] = array[j];
-                    j--;
-                }
-                array[j + 1] = key;
-            }
-        }
-    }
-    class QuickSort : ISortAlgorithm
-    {
-        public void Sort(int[] array)
-        {
-            Quick(array, 0, array.Length - 1);
-        }
-        private void Quick(int[]) arr, int left,int right)
-            {
-            int i = left, j = right;
-        int pivot = arr[(left + right) / 2];
-        while (i<= j )
-            {
-            while (arr[i] < pivot) i++;
-            while (arr[j] > pivot ) j--;
-            if (int <=j)
-            {
-            (arr[i], arr[j]) = (arr[j], arr[i]);
-            i++; j--;
-            }
-}
-if (left < j) Quick(arr, left, j);
-if (int < right) Quick(arr, i, right);
-class SortSelector
-{
-    public static ISortAlgorithm ChooseAlgorithm(int choise)
-    {
-        return choise switch
-        {
-            1 => new BubbleSort(),
-            2 => new InsertionSort(),
-            3 => new QuickSort(),
-            _ => throw new ArgumentException
-            };
-
-    }
-    public static void ShowAlgorithms()
-    {
-        Console.WriteLine("Выберите алгоритм сортировки");
-        Console.WriteLine("1- Пузырковая сортировка");
-        Console.WriteLine("2- Сортировка вставками");
-        Console.WriteLine("3- Быстрая сортирповка");
-    }
 }
         
 
