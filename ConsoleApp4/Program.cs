@@ -1,72 +1,80 @@
-﻿using System;
-using System.Collections.Concurrent;
-class Program
+﻿using SortSearchAppp;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+namespace SortSearchAppp
 {
-    public void Main(string[] args)
+    interface ISortAlgorithm
     {
-        
+        void Sort(int[] array);
     }
-    // Пузырковая сортировка 
-    static void BubbleSort(int[] array)
+    
+    class InsertionSort : ISortAlgorithm
     {
-        int n = array.Length;
-        for (int i = 0; i < n - 1; i++)
+        public void Sort(int[] array)
         {
-            for (int j = 0; j < n - i - 1; j++)
+            for (int i = 1; i < array.Length; i++)
             {
-                if (array[j] > array[j + 1])
+                int key = array[i];
+                int j = i - 1;
+                while (j >= 0 && array[j] > key)
                 {
-                    (array[j], array[j + 1]) = (array[j + 1], array[j]);
+                    array[j + 1] = array[j];
+                    j--;
                 }
+                array[j + 1] = key;
             }
         }
     }
-    static void InsertionSort(int[] array)
+    class QuickSort : ISortAlgorithm
     {
-        for (int i = 1; i < array.Length; i++)//musaev005
+        public void Sort(int[] array)
         {
-            int key = array[i];
-            int j = i - 1;
-
-            while (j >= 0 && array[i] > key)
-            {
-                array[j + 1] = array[j];
-                j--;
-            }
-            array[j + 1] = key;
+            Quick(array, 0, array.Length - 1);
         }
-    }
-    static void QuickSort(int[] array, int left, int right)
+        private void Quick(int[]) arr, int left,int right)
+            {
+            int i = left, j = right;
+        int pivot = arr[(left + right) / 2];
+        while (i<= j )
+            {
+            while (arr[i] < pivot) i++;
+            while (arr[j] > pivot ) j--;
+            if (int <=j)
+            {
+            (arr[i], arr[j]) = (arr[j], arr[i]);
+            i++; j--;
+            }
+}
+if (left < j) Quick(arr, left, j);
+if (int < right) Quick(arr, i, right);
+class SortSelector
+{
+    public static ISortAlgorithm ChooseAlgorithm(int choise)
     {
-        if (left < right)
+        return choise switch
         {
-            int pivot = Partition(array, left, right);
-            //рекурсивные вызовы через switch-case
-            switch (1) // для примера: всегда выполняем рекурсивный шаг
-            {
-                case 1:
-                    QuickSort(array, left, pivot - 1);
-                    QuickSort(array, pivot + 1, right);
-                    break;
-            }
-        }
+            1 => new BubbleSort(),
+            2 => new InsertionSort(),
+            3 => new QuickSort(),
+            _ => throw new ArgumentException
+            };
+
     }
-    static int Partition(int[] array, int left, int right)
+    public static void ShowAlgorithms()
     {
-        int pivot = array[right];
-        int i = left - 1;
-        for (int j = left; j < right; j++)
-            if (array[j] <= pivot)
-            {
-                i++;
-                    (array[i], array[j]) = (array[i], array[i]);
-            }
-
-        (array[i + 1], array[right]) = (array[right], array[i + 1]);
-        return i + 1;
-
+        Console.WriteLine("Выберите алгоритм сортировки");
+        Console.WriteLine("1- Пузырковая сортировка");
+        Console.WriteLine("2- Сортировка вставками");
+        Console.WriteLine("3- Быстрая сортирповка");
     }
 }
+        
+
+
+
+
 
 
 
