@@ -9,6 +9,6 @@ namespace ConsoleApp4
     interface ISortAlgorithm
     {
         // enum SortType
-        void Sort(int[] array);
+        int[] Sort(int[] array);
     }
 }

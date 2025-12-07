@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp4.SortingMethods
 {
-    class QuickSort : ISortAlgorithm
+    class QuickSort : SortAlgorithmBase
     {
-        public void Sort(int[] array)
+        public override int[] Sort(int[] array)
         {
             if (array.Length == 0)
                 throw new Exception();
 
             Sort(array, 0, array.Length - 1);
+
+            return array;
         }
 
         private void Sort(int[] arr, int left, int right)
@@ -40,18 +42,6 @@ namespace ConsoleApp4.SortingMethods
                     (arr[i], arr[j]) = (arr[j], arr[i]);
                     i++;
                     j--;
-
-
-
-
-
-
-
-
-
-
-
-
                 }
             }
 

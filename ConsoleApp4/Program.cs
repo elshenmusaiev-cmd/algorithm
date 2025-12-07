@@ -16,7 +16,7 @@ namespace ConsoleApp4
             string input = Console.ReadLine();
             string selectedAlgorithm = Console.ReadLine();
 
-            // TODO: Создать отдельный класс для преобразования прочитанного массива
+            // TODO: Перенести логику в класс списка
             string[] inputArray = input?.Split(' ').ToArray();
             int[] numbers = new int[inputArray.Length];
 

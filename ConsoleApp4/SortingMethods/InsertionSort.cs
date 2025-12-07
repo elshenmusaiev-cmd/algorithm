@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp4.SortingMethods
 {
-    class InsertionSort : ISortAlgorithm
+    class InsertionSort : SortAlgorithmBase
     {
-        public void Sort(int[] array)
+        public override int[] Sort(int[] array)
         {
             for (int i = 1; i < array.Length; i++)
             {
@@ -21,6 +21,8 @@ namespace ConsoleApp4.SortingMethods
                 }
                 array[j + 1] = key;
             }
+
+            return array;
         }
     }
 }
