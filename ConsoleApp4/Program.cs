@@ -17,10 +17,12 @@ namespace ConsoleApp4
             string selectedAlgorithm = Console.ReadLine();
 
             // TODO: Перенести логику в класс списка
-            string[] inputArray = input?.Split(' ').ToArray();
-            int[] numbers = new int[inputArray.Length];
+            string input = Console.ReadLine();
+            string selectedAlgorithm = Console.ReadLine();
 
-            for (int i = 0; i < inputArray.Length; i++)
+            
+
+            for (int i = 0; i < parts.Length; i++)
             {
                 int.TryParse(inputArray[i], out numbers[i]);
             }
@@ -32,6 +34,12 @@ namespace ConsoleApp4
             // Console.WriteLine();
 
             // TODO: Прочитать число для поиска
+            Console.Write
+                int searchNumber;
+            while (int.TryParse(Console.ReadLine(), out searchNumber))
+            {
+                Console.Write
+            }
 
             // Console.WriteLine()
 
