@@ -9,24 +9,52 @@ namespace ConsoleApp4
 {
     class Program
     {
-        public void Main()
+        public static  void Main()
         {
-            Console.WriteLine("Enter values");
+            while (true)
+            {
+                SortArray sortArray = new SortArray();
+                string input = string.Empty;
 
-            string input = Console.ReadLine();
+                while (sortArray.Collection.Count == 0) 
+                {
+                    Console.WriteLine("Enter values");
 
-            SortArray sortArray = new SortArray();
-            sortArray.ReadFromString(input);
+                    input = Console.ReadLine();
+                  
 
-            Console.WriteLine(SortSelector.ShowAlgorithms());
-            string selectedAlgorithm = Console.ReadLine();
-            ISortAlgorithm sortAlgorithm = SortSelector.ChooseAlgorithm(selectedAlgorithm);
+                    sortArray.ReadFromString(input);
+                }
+                if (input?.Trim() == "-1")
+                {
+                    break;
 
-            sortAlgorithm.Sort(sortArray.Collection.ToArray());
-            Console.WriteLine(sortAlgorithm.ToString());
-            Console.ReadLine();
-            string searchInput = Console.ReadLine();
+                }
+                Console.WriteLine(SortSelector.ShowAlgorithms());
+                string selectedAlgorithm = Console.ReadLine();
+                ISortAlgorithm sortAlgorithm = SortSelector.ChooseAlgorithm(selectedAlgorithm);
 
+                sortAlgorithm.Sort(sortArray.Collection.ToArray());
+                Console.WriteLine(sortAlgorithm.ToString());
+                
+                string searchInput = Console.ReadLine();
+                int result = -1;
+                while (!int.TryParse(searchInput, out result))
+                {
+
+                    searchInput = Console.ReadLine();
+                    continue;
+                }
+                
+                int index = sortAlgorithm.SavedArray.ToList().FindIndex(x => x == result);
+                Console.WriteLine(index.ToString());
+                Console.WriteLine();
+
+
+
+
+                // новый код пишется здесь 
+            }
 
 
 

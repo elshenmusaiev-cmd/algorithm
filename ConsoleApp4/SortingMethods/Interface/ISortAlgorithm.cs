@@ -8,7 +8,7 @@ namespace ConsoleApp4
 {
     interface ISortAlgorithm
     {
-        // enum SortType
+        int[] SavedArray { get; set; }
         int[] Sort(int[] array);
     }
 }

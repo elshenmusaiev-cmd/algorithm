@@ -11,7 +11,7 @@ namespace ConsoleApp4
     {
         public static ISortAlgorithm ChooseAlgorithm(string choice)
         {
-            return choice switch
+            return choice.Trim() switch
             {
                 "1" => new BubbleSort(),
                 "2" => new InsertionSort(),
