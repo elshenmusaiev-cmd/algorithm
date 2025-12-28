@@ -14,7 +14,7 @@ namespace ConsoleApp4.SortingMethods
 
         public override string ToString()
         {
-            return string.Join(",", SavedArray);
+            return string.Join(", ", SavedArray);
         }
     }
 }

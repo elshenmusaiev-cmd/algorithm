@@ -9,24 +9,28 @@ namespace ConsoleApp4
 {
     class SortSelector
     {
-        public static ISortAlgorithm ChooseAlgorithm(int choise)
+        public static ISortAlgorithm ChooseAlgorithm(string choice)
         {
-            return choise switch
+            return choice switch
             {
-                1 => new BubbleSort(),
-                2 => new InsertionSort(),
-                3 => new QuickSort(),
+                "1" => new BubbleSort(),
+                "2" => new InsertionSort(),
+                "3" => new QuickSort(),
                 _ => throw new ArgumentException()
             };
 
         }
 
-        public static void ShowAlgorithms()
+        public static string ShowAlgorithms()
         {
-            Console.WriteLine("Выберите алгоритм сортировки");
-            Console.WriteLine("1- Пузырковая сортировка");
-            Console.WriteLine("2- Сортировка вставками");
-            Console.WriteLine("3- Быстрая сортирповка");
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Выберите алгоритм сортировки");
+            sb.AppendLine("1- Пузырковая сортировка");
+            sb.AppendLine("2- Сортировка вставками");
+            sb.AppendLine("3- Быстрая сортирповка");
+
+            
+            return sb.ToString();
         }
     }
 }

@@ -14,38 +14,23 @@ namespace ConsoleApp4
             Console.WriteLine("Enter values");
 
             string input = Console.ReadLine();
+
+            SortArray sortArray = new SortArray();
+            sortArray.ReadFromString(input);
+
+            Console.WriteLine(SortSelector.ShowAlgorithms());
             string selectedAlgorithm = Console.ReadLine();
+            ISortAlgorithm sortAlgorithm = SortSelector.ChooseAlgorithm(selectedAlgorithm);
 
-            // TODO: Перенести логику в класс списка
-            string input = Console.ReadLine();
-            string selectedAlgorithm = Console.ReadLine();
-
-            
-
-            for (int i = 0; i < parts.Length; i++)
-            {
-                int.TryParse(inputArray[i], out numbers[i]);
-            }
-
-            // SortSelector
-
-            // Sort
-
-            // Console.WriteLine();
-
-            // TODO: Прочитать число для поиска
-            Console.Write
-                int searchNumber;
-            while (int.TryParse(Console.ReadLine(), out searchNumber))
-            {
-                Console.Write
-            }
-
-            // Console.WriteLine()
-
+            sortAlgorithm.Sort(sortArray.Collection.ToArray());
+            Console.WriteLine(sortAlgorithm.ToString());
             Console.ReadLine();
+            string searchInput = Console.ReadLine();
+
+
+
+
+
         }
     }
-    
 }
-         
